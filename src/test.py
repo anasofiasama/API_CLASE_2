@@ -14,11 +14,11 @@ moisture=0.0
 #Como es un pipline no se pude ingresar directamente, si fuera una lista si. En este caso se hace un pandas.
 
 cols= ['country_of_origin','variety','aroma','aftertaste','acidity','body','balance','moisture'] # cabecera de pandas
-data=[country_of_origin,variety,aroma,aftertaste,acidity,body,balance,moisture] # datos
+data=[country,variety,aroma,aftertaste,acidity,body,balance,moisture] # datos
 
 posted=pd.DataFrame(np.array(data).reshape(1,8),columns=cols) # se creo el archivo
 # falta abrir el archivo pickle
 loaded_model=pickle.load(open('../models/coffee_model.pkl','rb'))
 result=loaded_model.predict(posted)
-text_result=result.tolist(result)[0]
+text_result=result.tolist()[0]
 print(text_result)
