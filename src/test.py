@@ -2,7 +2,7 @@ import pickle
 import pandas as pd
 import numpy as np
 
-country='Other'
+country='Other' # Si agrego una categoria que no existe en en la lista, salta un error
 variety='Other'
 aroma=7.42
 aftertaste= 7.32
@@ -22,3 +22,5 @@ loaded_model=pickle.load(open('../models/coffee_model.pkl','rb'))
 result=loaded_model.predict(posted)
 text_result=result.tolist()[0]
 print(text_result)
+
+# modulo para hacer pruebas pytest
